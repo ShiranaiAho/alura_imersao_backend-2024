@@ -53,7 +53,11 @@ app.get('/posts', (req, res) => {
 
 app.get('/posts/:id', (req, res) => {
     const post = searchPostById(req.params.id);
-    res.status(200).json(post);
+    if (post) {
+        res.status(200).json(post);
+    } else {
+        res.status(404).send("POST NOT FOUND");
+    };
 });
 
 app.listen(port, () => {
