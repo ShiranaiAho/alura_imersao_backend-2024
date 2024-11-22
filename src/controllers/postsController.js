@@ -1,5 +1,6 @@
 import fs from "fs";
 import { getAllPosts, createPost, updatePost } from "../models/postsModel.js";
+import { generateDescGemini, generateAltTextGemini } from "../services/geminiService.js";
 
 export async function listPosts(req, res) {
     const posts = await getAllPosts();
@@ -38,12 +39,15 @@ export async function uploadImg(req, res) {
 export async function updateNewPost(req, res) {
     const id = req.params.id;
     const urlImg = `http://localhost:3000/${id}.png`;
-    const newPost = {
-        imgUrl: urlImg,
-        description: req.body.description,
-        alt: req.body.alt
-    };
     try {
+        const imgBuffer = fs.readFileSync(`./uploads/${id}.png`);
+        const desc = await generateDescGemini(imgBuffer);
+        const altText = await generateAltTextGemini(imgBuffer);
+        const newPost = {
+            imgUrl: urlImg,
+            description: desc,
+            alt: altText
+        };
         const post = await updatePost(id, newPost);
         res.status(200).json(post);
     } catch(err) {
