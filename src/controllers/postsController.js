@@ -38,7 +38,7 @@ export async function uploadImg(req, res) {
 
 export async function updateNewPost(req, res) {
     const id = req.params.id;
-    const urlImg = `http://localhost:3000/${id}.png`;
+    const urlImg = `https://shiranai-alura-instabytes-698349558589.southamerica-east1.run.app/${id}.png`;
     try {
         const imgBuffer = fs.readFileSync(`./uploads/${id}.png`);
         const desc = await generateDescGemini(imgBuffer);
