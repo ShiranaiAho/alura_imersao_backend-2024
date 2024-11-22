@@ -1,5 +1,6 @@
 # Alura Imersão Dev Back-end 2024
 Projeto realizado na "Imersão Dev Back-end" da Alura | 18/11/2024 - 22/11/2024
+O Front-end não foi feito por mim, apenas fiz umas pequenas modificações, o repositório original é [este](https://github.com/guilhermeonrails/insta-like).
 ### Conteúdo
  - [x] Aula 01: Desvendando APIs e Servidores
  - [x] Aula 02: Criando e Estruturando sua Primeira API com GET e Banco de Dados
