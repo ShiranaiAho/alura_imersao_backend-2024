@@ -24,7 +24,7 @@
   },
   "contributors": [],
   "scripts": {
-    "dev": "npx parcel --port 8000 ./instabytes/index.html",
+    "dev": "npx parcel --port 8000 ./insta-bytes/index.html",
     "server": "node --watch --env-file=.env server.js",
     "test": ""
   },
